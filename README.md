@@ -1,24 +1,43 @@
-# Practical-6: Android Media Player Service
+# Practical-6: Frame-by-Frame Animation & Twin Animation Splash Screen
 
+**Student Name:** Prince Patel  
 **Student Enrollment Number:** 24012011120  
-**Course:** Mobile Application Development (MAD)  
+**Course:** Mobile Application Development (2CEIT5PE18)  
 **IDE:** Android Studio  
 
+---
+
 ## Aim
-Create an Android application to demonstrate background playback using **Service** and **MediaPlayer**.
+Create an Android Application to demonstrate **Frame-by-Frame Animation** and **Splash Screen** to demonstrate **Twin Animation**.
 
-## Description
-This practical demonstrates how to create a Service class managing MediaPlayer audio playback (song.mp3) in the background with Play and Stop controls.
+## Overview
+In this practical, an Android application is created with an animated splash screen and animated UI elements. The application demonstrates frame-by-frame animation using a sequence of images and twin animation using different animation effects.
 
-## Features
-- Play / Stop controls via MainActivity.
-- Foreground service & Notification management.
-- MusicService.kt for audio lifecycle control.
+## Concepts Studied
+- ImageView
+- Frame-by-Frame Animation (AnimationDrawable)
+- Twin Animation (AnimationUtils, loadAnimation())
+- Splash Screen (SplashActivity to MainActivity)
+- Radial Gradient Background (<shape>, <gradient>)
+- Edge-to-Edge Display / Immersive UI
 
-## Output
+## Practical Requirements
+1. Create MainActivity with frame-by-frame animated alarm and heart elements.
+2. Create SplashActivity with university logo and twin animation.
+3. Configure radial gradient background (Pink to Blue).
+4. Implement <set>, <scale>, <translate>, <rotate>, and <alpha> in 	winanimation.xml.
 
-### Application UI & Controls
-![Home Screen](app/Screenshots/4_1.png)
+---
+
+## Output Screenshots
+
+### 1. Splash Screen (Twin Animation & Radial Gradient)
+![Splash Screen](Screenshots/6_1.png)
+
+### 2. Main Activity (Frame-by-Frame Animation)
+![Main Activity](Screenshots/6_2.png)
+
+---
 
 ## Conclusion
-Thus, an Android Media Player Service application was successfully created using **Service** and **MediaPlayer** in Kotlin.
+The application successfully demonstrates Frame-by-Frame Animation and Twin Animation with an animated splash screen and custom UI in Android.

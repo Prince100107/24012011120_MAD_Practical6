@@ -1,57 +1,61 @@
 package com.example.a24012011120_mad_practical6
 
+import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity(), Animation.AnimationListener {
-    lateinit var clockAnimation: AnimationDrawable
-    lateinit var heartAnimation: AnimationDrawable
+class SplashActivity : AppCompatActivity() , Animation.AnimationListener{
+
+    lateinit var guniFrameAnimation: AnimationDrawable
+    lateinit var imgLogo: ImageView
+    lateinit var guniAnimation: Animation
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_splash)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        imgLogo = findViewById(R.id.imgLogo)
+        imgLogo.setBackgroundResource(R.drawable.uvpce_animation_list)
+        guniFrameAnimation = imgLogo.background as AnimationDrawable
+        guniAnimation = AnimationUtils.loadAnimation(this,R.anim.twinanimation)
+        guniAnimation.setAnimationListener(this)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus){
-            clockAnimation = findViewById<ImageView>(R.id.img1).background as
-                    AnimationDrawable
-            heartAnimation = findViewById<ImageView>(R.id.img2).background as
-                    AnimationDrawable
-            clockAnimation.start()
-            heartAnimation.start()
+            guniFrameAnimation.start()
+            imgLogo.startAnimation(guniAnimation)
         }
         else{
-            clockAnimation.stop()
-            heartAnimation.stop()
+            guniFrameAnimation.stop()
         }
-    }
-
-    override fun onAnimationStart(animation: Animation?){
-        Log.d("AnimationStart","Animation Started")
     }
 
     override fun onAnimationEnd(p0: Animation?) {
-        Log.d("AnimationEnd","Animation Ended")
-        clockAnimation.start()
+        Intent(this, MainActivity::class.java).also {
+            startActivity(it)
+        }
     }
 
     override fun onAnimationRepeat(p0: Animation?) {
-        Log.d("AnimationRepeat","Animation has repeated")
+
+    }
+
+    override fun onAnimationStart(p0: Animation?) {
+
     }
 
 }
